@@ -1,12 +1,14 @@
 import Adafruit_BBIO.GPIO as GPIO
 import time
 import requests
+import urllib
 
 #Replace your own UID here.
 UID='XXXXXXXXXXXXXXXXXXXX'
+MESG='Button pushed!!!'
 
 def push_msg(channel):  
-    link='http://push.iotcplatform.com/tpns?cmd=event&uid=' + UID + '&event_type=100&msg=button%20pushed'
+    link='http://push.iotcplatform.com/tpns?cmd=event&uid='+UID+'&event_type=100&msg='+urllib.quote(MESG)
     res = requests.get(link, timeout=300)
     print res
 
