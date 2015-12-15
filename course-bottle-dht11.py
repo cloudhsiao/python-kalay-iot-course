@@ -13,7 +13,7 @@ def get_DHT11():
     global hum, temp
     hum, temp = Adafruit_DHT.read_retry(sensor, sensor_pin)
     #restart the timer
-    t = Timer(1.0, threadReadDHT11)
+    t = Timer(1.0, get_DHT11)
     t.start()
 
 @route('/dht11/')
