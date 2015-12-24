@@ -1,9 +1,11 @@
 import cv2
 
 #Number of frames to throw away while the camera adjusts to light levels
-ramp_frames = 30
+ramp_frames = 5
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 320) 
+cap.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 240)
 
 def get_image():
     retval, im = cap.read()
